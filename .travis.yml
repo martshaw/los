@@ -1,7 +1,15 @@
 language: node_js
 
 node_js:
-   - node
+   - lts/*
+   
+deploy:
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
+  on:
+    all_branches: true
+  project: "los"
 
 branches:
    only:
@@ -13,12 +21,6 @@ before_script:
 script:
    - npm run build
    
-deploy:
-  provider: firebase
-  token:
-    secure: $FIREBASE_TOKEN
-  project: "los"
-  
 notifications:
   email:
     on_failure: change
