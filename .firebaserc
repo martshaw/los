@@ -1,6 +1,5 @@
 {
   "projects": {
-    "default": "marts-62ae6",
-    "staging": "marts-62ae6"
+    "default": "marts-62ae6"
   }
 }
