@@ -1,0 +1,28 @@
+language: node_js
+
+node_js:
+   - node
+
+deploy:
+  provider: firebase
+  token:
+    secure: "1/NlSDtoFyMoPWAJFm5m_BrCd2mF6GCpkHrzNIqEsudC4"
+  project: "los"
+
+branches:
+   only:
+      - master # will only build for master branch commits
+
+before_script:
+   - npm install -g --silent firebase-tools # installs firebase to run firebase deploy
+
+script:
+   - npm run build
+
+after_success:
+  - firebase deploy --token $FIREBASE_TOKEN --non-interactive # firebase deploy after angular-cli build
+
+notifications:
+  email:
+    on_failure: change
+    on_success: change   
