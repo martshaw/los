@@ -4,7 +4,6 @@ node_js:
    - lts/*
    
 
-
 branches:
    only:
       - master # will only build for master branch commits
@@ -15,9 +14,5 @@ before_script:
 script:
    - npm run build
 
-deploy:
-  skip_cleanup: true
-  provider: firebase
-  token:
-    secure: $FIREBASE_TOKEN
-  project: "staging"
+after_success:
+  - firebase deploy --token "$FIREBASE_TOKEN"
