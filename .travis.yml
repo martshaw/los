@@ -4,6 +4,7 @@ node_js:
    - lts/*
    
 deploy:
+  skip_cleanup: true
   provider: firebase
   token:
     secure: $FIREBASE_TOKEN
