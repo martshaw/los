@@ -9,6 +9,7 @@ deploy:
     secure: $FIREBASE_TOKEN
   on:
     all_branches: true
+  script: firebase deploy --token $FIREBASE_TOKEN --non-interactive --only hosting
   project: "los"
 
 branches:
