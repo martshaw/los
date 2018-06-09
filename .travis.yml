@@ -6,7 +6,7 @@ node_js:
 deploy:
   provider: firebase
   token:
-    secure: "1/NlSDtoFyMoPWAJFm5m_BrCd2mF6GCpkHrzNIqEsudC4"
+    secure: $FIREBASE_TOKEN
   project: "los"
 
 branches:
@@ -20,7 +20,7 @@ script:
    - npm run build
 
 after_success:
-  - firebase deploy --token $FIREBASE_TOKEN --non-interactive # firebase deploy after angular-cli build
+  - firebase deploy # firebase deploy after angular-cli build
 
 notifications:
   email:
