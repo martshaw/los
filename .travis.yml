@@ -3,6 +3,8 @@ language: node_js
 node_js:
    - lts/*
    
+
+
 branches:
    only:
       - master # will only build for master branch commits
@@ -13,5 +15,8 @@ before_script:
 script:
    - npm run build
 
-after_success:
-  - "firebase deploy --token=${FIREBASE_TOKEN}"
+deploy:
+  skip_cleanup: true
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
