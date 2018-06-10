@@ -20,6 +20,7 @@ before_install:
   - npm install -g eslint-plugin-flowtype
   - npm install -g babel-eslint 
   - npm install -g eslint-plugin-prettier
+  - npm install -g eslint-config-prettier
     
 install:
   - npm ci
