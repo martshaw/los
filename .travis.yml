@@ -15,4 +15,5 @@ script:
    - npm run build
 
 after_success:
+  - npm install -g --silent eslint 
   - firebase deploy --token $FIREBASE_TOKEN --non-interactive
