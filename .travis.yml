@@ -4,14 +4,13 @@ language: node_js
 node_js:
    - lts/*
 cache:
-  yarn: true
   directories:
    - $HOME/.npm
 
 branches:
    only:
       - master # will only build for master branch commits
-      - /^v\d+\.\d+\.\d+$/
+      - /v\d+\.\d+[a-z]/
 
 before_install:
   - npm install -g npm@latest
@@ -33,4 +32,4 @@ deploy:
   message: Deploying v$TRAVIS_TAG to Firebase
   skip_cleanup: true
   on:
-    tags: true
+    condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+
