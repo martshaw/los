@@ -1,5 +1,5 @@
-set -e
-set -x
+#!/usr/bin/env bash
+set -eu
 
 SERVICE_NAME=$1
 
