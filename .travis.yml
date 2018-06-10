@@ -1,7 +1,6 @@
 sudo: required
 dist: trusty
 language: node_js
-
 node_js:
    - lts/*
 cache:
@@ -14,14 +13,14 @@ branches:
       - master # will only build for master branch commits
       - /^v\d+\.\d+\.\d+$/
 
-before_script:
-    - npm install -g npm@latest
+before_install:
+  - npm install -g npm@latest
     
 install:
   - npm ci
 
 script:
-   - npm run build
+  - npm run build
   
 deploy:
   provider: firebase
