@@ -24,6 +24,7 @@ before_install:
   - npm install -g prettier
   - npm install -g firebase-functions
   - npm install -g firebase
+  - cd functions/ && npm install
     
 install:
   - npm ci
