@@ -21,6 +21,7 @@ before_install:
   - npm install -g babel-eslint 
   - npm install -g eslint-plugin-prettier
   - npm install -g eslint-config-prettier
+  - npm install -g prettier
     
 install:
   - npm ci
