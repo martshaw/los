@@ -21,10 +21,16 @@ install:
 
 script:
   - npm run build
-  
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/confirm_no_existing_tag.sh; fi'
+after_success:
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then bash ./travis/tag.sh "jm-website"; fi'
+
 deploy:
-  skip_cleanup: true
   provider: firebase
   token:
     secure: $FIREBASE_TOKEN
   project: dev
+  message: Deploying v$TRAVIS_TAG to Firebase
+  skip_cleanup: true
+  on:
+    tags: true
