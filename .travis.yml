@@ -8,10 +8,11 @@ branches:
    only:
       - master # will only build for master branch commits
 
+before_script:
+   - npm install -g --silent firebase-tools && eslint # installs firebase to run firebase deploy
+
 script:
    - npm run build
 
-deploy:
-  provider: firebase
-  token:
-    secure: "$FIREBASE_TOKEN"
+after_success:
+  - firebase deploy --token "$FIREBASE_TOKEN" --non-interactive
