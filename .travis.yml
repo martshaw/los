@@ -9,7 +9,8 @@ branches:
       - master # will only build for master branch commits
 
 before_script:
-   - npm install -g --silent firebase-tools && eslint && eslint-plugin-promise # installs firebase to run firebase deploy
+   - npm install -g --silent firebase-tools && eslint # installs firebase to run firebase deploy
+   - npm install -g --silent eslint-plugin-promise 
 
 script:
    - npm run build
