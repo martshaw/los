@@ -19,6 +19,7 @@ before_install:
   - npm install -g eslint-plugin-promise
   - npm install -g eslint-plugin-flowtype
   - npm install -g babel-eslint 
+  - npm install -g eslint-plugin-prettier
     
 install:
   - npm ci
