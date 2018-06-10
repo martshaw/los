@@ -15,7 +15,7 @@ branches:
       - /^v\d+\.\d+\.\d+$/
 
 before_script:
-    - "npm install -g npm@latest"
+    - npm install -g npm@latest
     
 install:
   - npm ci
