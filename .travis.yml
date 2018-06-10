@@ -10,10 +10,11 @@ branches:
 
 before_script:
    - npm install -g --silent firebase-tools && eslint # installs firebase to run firebase deploy
-   - npm install -g --silent eslint-plugin-promise 
 
 script:
    - npm run build
 
-after_success:
-  - firebase deploy --token $FIREBASE_TOKEN --non-interactive
+  deploy:
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
