@@ -22,9 +22,14 @@ script:
   - npm run build
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/confirm_no_existing_tag.sh; fi'
 after_success:
-  - firebase deploy --token ${FIREBASE_TOKEN}
+  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then bash ./travis/tag.sh "los"; fi'
 
 deploy:
-  provider: releases
-  api_key:
-    secure: $GH_TOKEN
+  provider: firebase
+  token:
+    secure: $FIREBASE_TOKEN
+  project: dev
+  message: Deploying v$TRAVIS_TAG to Firebase
+  skip_cleanup: true
+  on:
+    condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+
