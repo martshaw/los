@@ -15,15 +15,6 @@ branches:
 
 before_install:
   - npm install -g npm@latest
-  - npm install -g eslint
-  - npm install -g eslint-plugin-promise
-  - npm install -g eslint-plugin-flowtype
-  - npm install -g babel-eslint 
-  - npm install -g eslint-plugin-prettier
-  - npm install -g eslint-config-prettier
-  - npm install -g prettier
-  - npm install -g firebase-functions
-  - npm install -g firebase
     
 install:
   - npm ci
