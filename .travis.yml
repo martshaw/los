@@ -22,6 +22,7 @@ script:
   - npm run build
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then bash ./travis/confirm_no_existing_tag.sh; fi'
 after_success:
+  - chmod 777 ./travis/tag.sh
   - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then bash ./travis/tag.sh "los"; fi'
 
 deploy:
