@@ -26,5 +26,3 @@ deploy:
   provider: firebase
   token:
     secure: $FIREBASE_TOKEN
-  on:
-    tags: true
