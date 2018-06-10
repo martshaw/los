@@ -23,7 +23,7 @@ before_install:
   - npm install -g eslint-config-prettier
   - npm install -g prettier
   - npm install -g firebase-functions
-  - npm install
+  - npm install -g firebase
     
 install:
   - npm ci
