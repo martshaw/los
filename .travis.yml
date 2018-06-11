@@ -3,11 +3,7 @@ dist: trusty
 language: node_js
 node_js:
    - lts/*
-env:
-  global:
-  - VERSION_NUMBER=build-${TRAVIS_BUILD_NUMBER}
-  - ENVIRONMENT=ci
-  
+   
 cache:
   directories:
    - $HOME/.npm
@@ -41,4 +37,4 @@ deploy:
     secure: $FIREBASE_TOKEN
   project: dev
   message: Deploying v$TRAVIS_TAG to Firebase
-  skip_cleanup: true 
+  skip_cleanup: true
