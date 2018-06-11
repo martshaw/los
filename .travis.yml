@@ -41,4 +41,4 @@ deploy:
     secure: $FIREBASE_TOKEN
   project: dev
   message: Deploying v$TRAVIS_TAG to Firebase
-  skip_cleanup: true
+  skip_cleanup: true 
