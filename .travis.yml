@@ -33,7 +33,6 @@ after_success:
   - export GIT_TAG=rev-$TRAVIS_BUILD_NUMBER
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
   - test $TRAVIS_BRANCH = "master" && git push -q https://$GH_TOKEN@github.com/martshaw/los.git --tags
-  - 'if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then bash ./travis/tag.sh "los"; fi'
 
 deploy:
   provider: firebase
